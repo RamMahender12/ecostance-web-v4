@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { Public_Sans, Spectral } from "next/font/google";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ChatWidget } from "../components/ChatWidget";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const spectral = Spectral({
+  variable: "--font-spectral",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${cormorant.variable} h-full antialiased`}>
+    <html lang="en" className={`${publicSans.variable} ${spectral.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-chalk font-sans text-ink">
         <Header />
         <main className="flex-1">{children}</main>

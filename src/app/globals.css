@@ -37,8 +37,8 @@
   --color-chalk: var(--chalk);
   --color-chalk-warm: var(--chalk-warm);
   --color-line: var(--line);
-  --font-sans: var(--font-jakarta);
-  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-public-sans);
+  --font-display: var(--font-spectral);
 }
 
 * {
@@ -52,7 +52,7 @@ html {
 body {
   background: var(--chalk);
   color: var(--ink);
-  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-family: var(--font-public-sans), system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;

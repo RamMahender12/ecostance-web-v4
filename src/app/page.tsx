@@ -85,7 +85,21 @@ export default function HomePage() {
 
           <div className="grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
             <FadeUp className="lg:col-span-5">
-              <div className="relative mx-auto w-full max-w-md lg:mx-0">
+              <div className="relative mx-auto w-full max-w-md lg:mx-0 space-y-6">
+                {/* Real Product UI Image Preview */}
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-lg">
+                  <Image
+                    src={assets.dpp_featured}
+                    alt="Digital Product Passport QR Code & UI"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                  <div className="absolute top-3 left-3 rounded-full bg-emerald-800 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
+                    Product UI Screenshot
+                  </div>
+                </div>
+
                 <div className="hang-tag">
                   <p className="chapter-label mb-5">Scan · Verify · Trust</p>
                   <h3 className="font-display text-3xl font-medium leading-tight md:text-[2.15rem]">
@@ -180,14 +194,23 @@ export default function HomePage() {
                   </ButtonLink>
                 </div>
               </div>
-              <div className="order-1 overlap-frame flex aspect-[4/5] flex-col justify-between bg-white p-8 shadow-[var(--shadow-lift)] md:p-12 lg:order-2 lg:col-span-7 lg:ml-8">
-                <p className="chapter-label">Lookbook note</p>
-                <p className="font-display text-3xl font-medium italic leading-snug text-ink md:text-[2.75rem]">
-                  {supply.hero}
-                </p>
-                <ul className="space-y-3 border-t border-ink/8 pt-7">
+              <div className="order-1 overlap-frame relative flex min-h-[380px] flex-col justify-between overflow-hidden bg-white p-8 shadow-[var(--shadow-lift)] md:p-12 lg:order-2 lg:col-span-7 lg:ml-8">
+                <Image
+                  src={assets.supply}
+                  alt="Supply Chain Traceability Graph"
+                  fill
+                  className="object-cover opacity-25 hover:opacity-40 transition duration-500"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="relative z-10">
+                  <p className="chapter-label mb-2">Lookbook note · Traceability UI</p>
+                  <p className="font-display text-2xl font-medium italic leading-snug text-ink md:text-3xl">
+                    {supply.hero}
+                  </p>
+                </div>
+                <ul className="relative z-10 space-y-3 border-t border-ink/15 pt-6 bg-white/85 p-4 rounded-xl backdrop-blur-sm">
                   {supply.bullets.slice(0, 3).map((b) => (
-                    <li key={b} className="text-sm text-muted">
+                    <li key={b} className="text-sm font-medium text-ink/80">
                       — {b}
                     </li>
                   ))}

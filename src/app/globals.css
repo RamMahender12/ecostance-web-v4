@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+/* Editorial Luxury — warm chalk + EcoStance mint pastel */
+:root {
+  --ink: #1c241f;
+  --ink-2: #121916;
+  --muted: #5a655e;
+  --accent: #6bc978;
+  --accent-dim: #3f9a4e;
+  --mint: #d4efdb;
+  --mint-soft: #eaf6ed;
+  --sage: #b8e0c2;
+  --surface: #eaf6ed;
+  --chalk: #f5f2eb;
+  --chalk-warm: #faf8f3;
+  --white: #ffffff;
+  --line: rgba(28, 36, 31, 0.09);
+  --line-mint: rgba(107, 201, 120, 0.32);
+  --line-light: rgba(255, 255, 255, 0.16);
+  --shadow-soft: 0 4px 24px rgba(28, 36, 31, 0.05), 0 1px 3px rgba(28, 36, 31, 0.03);
+  --shadow-lift: 0 12px 40px rgba(28, 36, 31, 0.08), 0 2px 8px rgba(28, 36, 31, 0.04);
+  --shadow-float: 0 20px 60px rgba(28, 36, 31, 0.1), 0 4px 16px rgba(28, 36, 31, 0.05);
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --rhythm: 8px;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-sage: var(--sage);
+  --color-surface: var(--surface);
+  --color-chalk: var(--chalk);
+  --color-chalk-warm: var(--chalk-warm);
+  --color-line: var(--line);
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-cormorant);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--chalk);
+  color: var(--ink);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 38%, white);
+  color: var(--ink-2);
+}
+
+/* Soft film grain — fixed opacity 0.03 */
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+.pastel-wash {
+  background: var(--mint-soft);
+}
+
+.pastel-panel {
+  background: var(--mint-soft);
+  border: 1px solid var(--line-mint);
+  box-shadow: var(--shadow-soft);
+}
+
+.surface-chalk {
+  background: var(--chalk-warm);
+}
+
+.container-x {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: min(1320px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container-x {
+    width: min(1120px, calc(100% - 4rem));
+  }
+  .container-wide {
+    width: min(1320px, calc(100% - 5rem));
+  }
+}
+
+.font-display {
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  letter-spacing: -0.025em;
+  font-feature-settings: "liga" 1, "kern" 1, "onum" 1;
+}
+
+.display-xl {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(3.5rem, 8vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.display-lg {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.chapter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.editorial-band {
+  padding-block: clamp(5rem, 11vw, 8.5rem);
+}
+
+.soft-shadow {
+  box-shadow: var(--shadow-soft);
+}
+
+.lift-shadow {
+  box-shadow: var(--shadow-lift);
+}
+
+.float-shadow {
+  box-shadow: var(--shadow-float);
+}
+
+/* Magazine hang-tag — fashion editorial artifact */
+.hang-tag {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 2.5rem 2rem 2.75rem;
+  box-shadow: var(--shadow-lift);
+  position: relative;
+}
+
+.hang-tag::before {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--mint-soft);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  transform: translateX(-50%);
+}
+
+/* Overlapping magazine frame */
+.overlap-frame {
+  position: relative;
+  z-index: 1;
+}
+
+.overlap-frame::after {
+  content: "";
+  position: absolute;
+  inset: 1rem -1rem -1rem 1rem;
+  border: 1px solid var(--line-mint);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .overlap-frame::after {
+    inset: 1.5rem -1.5rem -1.5rem 1.5rem;
+  }
+}
+
+.lookbook-strip {
+  transition: background 0.5s var(--ease-editorial), padding 0.5s var(--ease-editorial);
+}
+
+.lookbook-strip:hover {
+  background: color-mix(in srgb, var(--mint-soft) 75%, white);
+  padding-inline: 0.75rem;
+}
+
+/* Hairline rule */
+.rule {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--ease-editorial) both;
+}
+
+/* Continuous hero film — slow cinematic drift */
+.hero-film {
+  transform: scale(1.08);
+  animation: hero-film-drift 32s ease-in-out infinite alternate;
+}
+
+@keyframes hero-film-drift {
+  from {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.14) translate3d(-1.8%, -1.2%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+  .hero-film {
+    animation: none;
+    transform: scale(1.05);
+  }
+  body::before {
+    display: none;
+  }
+}

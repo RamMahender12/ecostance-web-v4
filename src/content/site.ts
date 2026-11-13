@@ -9,6 +9,7 @@ export type NavItem = { label: string; href: string };
 export const nav: NavItem[] = [
   { label: "Products", href: "/products" },
   { label: "Services", href: "/services" },
+  { label: "AI", href: "/ai" },
   { label: "Compliance", href: "/compliance" },
   { label: "Media", href: "/media" },
   { label: "About", href: "/about" },
@@ -466,7 +467,7 @@ export const mediaItems: MediaItem[] = [
   {
     slug: "eudr-and-beyond",
     kind: "article",
-    title: "Not just EUDR — the full evidence stack",
+    title: "The Full Evidence Stack for EUDR and Beyond",
     excerpt:
       "How one data layer serves EUDR, ESPR/DPP, CSRD, CSDDD, CBAM, Forced Labour, PPWR, and UFLPA.",
     date: "2026-05-20",

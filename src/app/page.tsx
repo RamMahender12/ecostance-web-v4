@@ -368,7 +368,7 @@ export default function HomePage() {
           <FadeUp>
             <p className="chapter-label mb-5">Compliance</p>
             <h2 className="max-w-3xl font-display text-[clamp(2.5rem,4.5vw,3.5rem)] font-medium leading-[1.05]">
-              Not just EUDR — the full evidence stack
+              The Full Evidence Stack for EUDR and Beyond
             </h2>
             <p className="mt-5 max-w-2xl text-base text-muted md:text-lg">
               Fashion and apparel brands selling into Europe and beyond face overlapping product and

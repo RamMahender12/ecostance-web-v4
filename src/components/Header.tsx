@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronDown, Menu, X, ArrowRight, ShieldCheck, FileCheck2, Globe2, Leaf, Calculator, Users, Calendar } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, ShieldCheck, FileCheck2, Globe2, Leaf, Calculator, Users, Calendar, Sparkles } from "lucide-react";
 import { SHOP_URL } from "../content/site";
 
 export function Header() {
@@ -26,6 +26,12 @@ export function Header() {
     { name: "Supply Chain Onboarding", desc: "Connect initial suppliers & graph", href: "/services" },
     { name: "Partner & Employee Engagement", desc: "Engage partners and staff", href: "/services" },
     { name: "Free Strategy Session", desc: "Up to 3 hours free consultation", href: "/services", badge: "Free" },
+  ];
+
+  const companyLinks = [
+    { name: "Media", desc: "News, articles & knowledge base", href: "/media" },
+    { name: "About", desc: "Our story and team", href: "/about" },
+    { name: "Contact", desc: "Talk to us or request a demo", href: "/contact" },
   ];
 
   return (
@@ -132,29 +138,41 @@ export function Header() {
           </div>
 
           <Link
+            href="/ai"
+            className="flex items-center gap-1.5 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-emerald-800 transition duration-200 hover:text-emerald-900"
+          >
+            <Sparkles className="size-3.5" />
+            AI
+          </Link>
+          <Link
             href="/compliance"
             className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-gray-700 transition duration-200 hover:text-emerald-800"
           >
             Compliance
           </Link>
-          <Link
-            href="/media"
-            className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-gray-700 transition duration-200 hover:text-emerald-800"
-          >
-            Media
-          </Link>
-          <Link
-            href="/about"
-            className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-gray-700 transition duration-200 hover:text-emerald-800"
-          >
-            About
-          </Link>
-          <Link
-            href="/contact"
-            className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-gray-700 transition duration-200 hover:text-emerald-800"
-          >
-            Contact
-          </Link>
+          <div className="relative group py-5">
+            <button
+              type="button"
+              className="flex items-center gap-1.5 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-gray-700 transition duration-200 hover:text-emerald-800"
+            >
+              Company
+              <ChevronDown className="size-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" />
+            </button>
+            <div className="absolute top-full right-0 w-[260px] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 ease-out pt-2">
+              <div className="rounded-2xl border border-gray-200/80 bg-white p-3 shadow-2xl ring-1 ring-black/5 space-y-1">
+                {companyLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block p-2.5 rounded-lg hover:bg-emerald-50/70 transition group/item"
+                  >
+                    <span className="text-xs font-semibold text-gray-900 group-hover/item:text-emerald-800">{item.name}</span>
+                    <p className="text-[11px] text-gray-500">{item.desc}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
         </nav>
 
         {/* Lezada Right Actions */}
@@ -196,6 +214,7 @@ export function Header() {
             <Link href="/" className="text-sm font-medium text-gray-900" onClick={() => setOpen(false)}>Home</Link>
             <Link href="/products" className="text-sm font-medium text-gray-900" onClick={() => setOpen(false)}>Products</Link>
             <Link href="/services" className="text-sm font-medium text-gray-900" onClick={() => setOpen(false)}>Services</Link>
+            <Link href="/ai" className="text-sm font-medium text-gray-900" onClick={() => setOpen(false)}>AI</Link>
             <Link href="/compliance" className="text-sm font-medium text-gray-900" onClick={() => setOpen(false)}>Compliance</Link>
             <Link href="/media" className="text-sm font-medium text-gray-900" onClick={() => setOpen(false)}>Media & Knowledge Base</Link>
             <Link href="/about" className="text-sm font-medium text-gray-900" onClick={() => setOpen(false)}>About</Link>
